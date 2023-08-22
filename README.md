@@ -14,8 +14,8 @@ These modules are tested under PowerShell version 5+
 
 ### 0.2.1: ScaleFT.PS (v0.2.1)-Fixed
 
-* Download: [scaleft-powershell-0.2.1.zip](https://github.com/mm-msimon/scaleft-powershell/releases/new)
-* SHA256: `#`
+* Download: [scaleft-powershell-0.2.1.zip](https://github.com/mm-msimon/scaleft-powershell/archive/refs/tags/v0.2.1.zip)
+* SHA256: `6141ce8e914ad4be1fa461819e80b36aba52591632bea48732fb6670a60d903b`
 
 ### 0.2.0: Update Authenticode certificate ID
 
