@@ -36,7 +36,7 @@ function Get-URL-With-Authenticode(){
         if (!(Test-Path "$output")) {
             echo "Downloading $url to $output"
             New-Item -force -path $baseDir -type directory
-            Invoke-WebRequest -UserAgent "ScaleFT/PS1-0.1.0" -UseBasicParsing -TimeoutSec 30 -Uri $url -OutFile $output
+            Invoke-WebRequest -UserAgent "ScaleFT/PS1-0.2.0" -UseBasicParsing -TimeoutSec 30 -Uri $url -OutFile $output
         } else {
             echo "Existing $output found"
         }
@@ -94,7 +94,7 @@ function Install-ScaleFTServerTools(){
         $ErrorActionPreference = "Stop";
 
         # ScaleFT Authenticode Signing Certificate
-        $pinnedCertId = "EAD228893EEB01615136725DCE136FF8457E4424"
+        $pinnedCertId = "ead228893eeb01615136725dce136ff8457e4424"
         $installerURL = ""
         if ($PSBoundParameters.ContainsKey("ToolsVersion")) {
             if ($ReleaseChannel -eq "stable") {
@@ -145,7 +145,7 @@ function Install-ScaleFTServerTools(){
 
         $status = Start-Process -FilePath msiexec -ArgumentList /i,$msiPath,/qn,/L*V!,$msiLog  -Wait -PassThru
 
-        if ($status.ExitCode -ne 0) {
+        if ($status.ExitCode -ne 0 -or $status.Exitcode -ne 1603) {
 	        Start-ScaleFTService
             throw "msiexec failed with exit code: $($status.ExitCode) Log: $($msiLog)"
         }
